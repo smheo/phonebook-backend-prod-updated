@@ -11,7 +11,7 @@
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
 
   },
-  "author": "Grey",
+  "author": "smheo",
   "license": "MIT",
   "dependencies": {
     "express": "^4.19.2",
