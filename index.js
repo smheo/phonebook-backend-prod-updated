@@ -1,8 +1,10 @@
 const http = require('http')
 const express = require('express')
 const morgan = require('morgan')
+const cors = require('cors')
 
-//test comment
+
+
 
 let people = [
     {
@@ -35,18 +37,7 @@ const total = arrFromObj.length
 app.use(express.json())
 app.use(express.static('dist'))
 app.use(morgan('dev'))
-
-// console.log(app.use(morgan('dev')))
-
-// morgan(function (tokens, req, res) {
-//     return [
-//         tokens['response-time'](req, res), 'ms'
-//         tokens.name(req,res),
-//         tokens.number(req,res)
-//     ].join(' ')
-//
-// })
-
+app.use(cors())
 
 
 app.get('/', (request, response) => {
@@ -111,19 +102,9 @@ app.post('/api/persons', (request, response) => {
 })
 
 
-// const app = http.createServer((request, response) => {
-//   response.writeHead(200, { 'Content-Type': 'text/plain'
-//   })
-//   response.end(JSON.stringify(people))
-//     })
 
-// app.get('/api/people', (request, response) => {
-//   const id = request.params.id
-//   const person = people.find(person => person.id === id)
-//   response.json(person)
-// })
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT)
 console.log(`Server running on port ${PORT}`)
 
