@@ -77,7 +77,6 @@ const randomID=()=>{
     return maxID + 1
 }
 
-
 app.post('/api/persons', (request, response) => {
     const body = request.body
     body.id = randomID()
@@ -93,13 +92,7 @@ app.post('/api/persons', (request, response) => {
         console.log('Error: Name must be entered')
     }
 
-
-
-
 })
-
-
-
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT)
